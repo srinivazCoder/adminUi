@@ -1,0 +1,110 @@
+
+
+
+.searchBar{
+    display: flex;
+    margin: 0.5rem 0;
+}
+
+.searchInput input{
+    
+    /* padding-right: 0.7rem; */
+}
+
+input[type='text']{
+    width:100%;
+    border-radius: 0.2rem;
+}
+
+input{
+   
+    margin-right: 1rem;
+    height: 1.5rem;
+}
+
+button{
+    width: 100%;
+    height: 1.8rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+.searchBtn{
+    margin-left:0.9rem ;
+    width: 10%;
+   
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    min-height: 300px !important;
+   
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    height: min-content;
+  }
+
+  .actionsBtn{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem;
+    column-gap: 10px;
+  }
+
+  .pageNation{
+    display: flex;
+    align-items: baseline;
+    /* justify-content: center; */
+    margin: 1rem 1rem;
+    padding: 1rem;
+    /* background-color: #f0f0f0; */
+  }
+
+  .pageNationBtn{
+    margin-right: 0.5rem;
+    
+
+  }
+  .pageNationBtnPageChanger{
+    margin-right: 0.5rem;
+    background-color:rgb(108, 134, 180);
+    color:white
+
+  }
+
+  button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .pageNationNumber{
+    display: flex;
+    margin-left: 27%;
+  }
+
+  .editBtn{
+    background-color:cornflowerblue;
+  }
+  .deleteBtn{
+    background-color: #e49090;
+  }
+  .pageChanger{
+    margin: 0rem 1rem 0 0.5rem;
+  
+  }
+
+  .checkedRow{
+    background-color:#a09d9d;
+  }
+  .updateBtn{
+    background-color: green;
+    color: white;
+  }
+
+
+  
+  

@@ -1,0 +1,89 @@
+<div style="margin: 2rem 3rem;">
+    <title>Admin UI</title>
+    <div class="searchBar">
+
+        <div class="inputSearch" style="width: 90%;">
+            <input type="text" id="search" class="search-icon" [(ngModel)]="searchInputValue" (input)="searchFilter(searchInputValue)" placeholder="Search by name, email or role" />
+        </div>
+
+        <div class="searchBtn">
+            <button>Search</button>
+        </div>
+
+    </div>
+    <div>
+        <table>
+            <thead>
+
+
+                <tr>
+                    <th><input type="checkbox" (change)="checkAllBtnPage($event)"></th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of dataCollection" [ngClass]="{'checkedRow': data.isChecked}">
+                    <td>
+                        <input type="checkbox" [id]="data.id" [(ngModel)]="data.isChecked" (change)="checkBtn(data.id)">
+                    </td>
+
+                    <td *ngIf="!data.isEdit">
+                        {{data.name}}
+                    </td>
+                    <td *ngIf="data.isEdit">
+                        <input type="text" [(ngModel)]="data.name">
+                    </td>
+
+                    <td *ngIf="!data.isEdit">
+                        {{data.email}}
+                    </td>
+                    <td *ngIf="data.isEdit">
+                        <input type="text" [(ngModel)]="data.email">
+                    </td>
+
+                    <td *ngIf="!data.isEdit">
+                        {{data.role}}
+                    </td>
+                    <td *ngIf="data.isEdit">
+                        <input type="text" [(ngModel)]="data.role">
+                    </td>
+
+                    <td>
+                        <div class="actionsBtn">
+                            <button *ngIf="!data.isEdit" class="editBtn" (click)="isEditFun(data.id)">edit</button>
+                            <button *ngIf="!data.isEdit" (click)="deleteOne(data.id)" class="deleteBtn">delete</button>
+                            <button  *ngIf="data.isEdit" (click)="updateFun()" class="updateBtn">save</button>
+                        </div>
+
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="pageNation">
+        <div>
+            <button (click)="selectedDelete()" class="deleteBtn">Delete Selected</button>
+        </div>
+        
+        <div class="pageNationNumber">
+            <div class="previous-page pageChanger">
+                <button class="pageNationBtnPageChanger" (click)="pageChangerFun(-1)" [disabled]="getPagenationNum===1">Prev</button>
+            </div>
+            <div style="display: flex;">
+                <button *ngFor="let p of pageNationData; let i = index" (click)="loadPageFn(p)" class="pageNationBtn"
+                [ngStyle]="{'background-color': (getPagenationNum === i+1) ? 'white' : 'cornflowerblue' }">{{p}}</button>
+            </div>
+            <div class="next-page pageChanger">
+                <button class="pageNationBtnPageChanger" (click)="pageChangerFun(1)" [disabled]="getPagenationNum == pageNationData.length">Next</button>
+            </div>
+          
+        </div>
+    </div>
+
+
+</div>
